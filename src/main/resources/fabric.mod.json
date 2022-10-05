@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "chatheads",
+  "version": "${version}",
+  "name": "ChatHeads",
+  "description": "Сделанно специально для СП",
+  "authors": [
+    "Ryfi_Coder"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/ChatHeads/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "me.ryfi.chatheads.ChatHeads"
+      }
+    ]
+  },
+  "mixins": [
+    "ChatHeads.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.9",
+    "fabric": "*",
+    "minecraft": "1.19.2",
+    "fabric-language-kotlin": ">=1.8.3+kotlin.1.7.10"
+  }
+}
