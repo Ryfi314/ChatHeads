@@ -14,7 +14,7 @@ fun String.chunkedMessage(size: Int) : List<String> {
             chunked.add(buffer.toString())
             buffer.clear()
         } else {
-            buffer.append(word)
+            buffer.append(word).append(" ")
         }
     }
     return chunked
