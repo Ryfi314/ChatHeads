@@ -1,21 +1,28 @@
 package me.ryfi.chatheads.util
 
-fun String.chunkedMessage(size: Int) : List<String> {
+fun String.chunkedMessage(
+    size: Int
+): List<String>
+{
+    val lines = mutableListOf<String>()
 
-    if (!intern().contains(" ")) {
-        return intern().chunked(size)
+    if(!this.contains(" ")) {
+        return this.chunked(size)
     }
+    var firstWord = true
+    val builder = StringBuilder()
 
-    val buffer = StringBuilder()
-    val chunked = mutableListOf<String>()
-
-    for (word in intern().split(" ")){
-        if(buffer.length + word.length > size){
-            chunked.add(buffer.toString())
-            buffer.clear()
-        } else {
-            buffer.append(word).append(" ")
+    for (word in this.split(" ")) {
+        if (builder.length + word.length > size) {
+            lines.add(builder.toString())
+            builder.setLength(0)
+            firstWord = true
         }
+        if (firstWord) firstWord = false else builder.append(' ')
+        builder.append(word)
     }
-    return chunked
+    if (builder.isNotEmpty()) {
+        lines.add(builder.toString())
+    }
+    return lines
 }

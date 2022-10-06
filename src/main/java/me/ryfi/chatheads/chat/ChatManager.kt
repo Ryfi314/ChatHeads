@@ -32,8 +32,8 @@ object ChatManager {
             .replaceFirst(rawName, "")
             .replaceFirst(" ", "")
 
-        if (rawMessage.length > 35) {
-            messageCache.put(name, cookedMessage.chunkedMessage(35))
+        if (rawMessage.length > 25) {
+            messageCache.put(name, cookedMessage.chunkedMessage(25))
         } else {
             messageCache.put(name, listOf(cookedMessage))
         }
