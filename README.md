@@ -5,8 +5,9 @@ Cделанно исключительно для сп <br /> <br />
 
 ![image](https://user-images.githubusercontent.com/47270610/194148051-110e8f23-99a7-417b-9501-68012a0fa27d.png)
 
+# Скачать
+https://www.curseforge.com/minecraft/mc-mods/chatheads
+
 # Установка
 Для работы нужен kotlin-fabric<br />
 https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin<br />
-# Скачать
-https://www.curseforge.com/minecraft/mc-mods/chatheads
