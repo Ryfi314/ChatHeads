@@ -26,6 +26,6 @@ object Version {
     }
 
     @JvmStatic
-    fun hasUpdates() : Boolean = hasUpdates
+    fun hasUpdates(): Boolean = hasUpdates
 
 }

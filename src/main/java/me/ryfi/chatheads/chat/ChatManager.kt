@@ -21,6 +21,7 @@ object ChatManager {
 
     @JvmStatic
     fun handleChatMessage(rawMessage: String) {
+
         val rawName = rawMessage.split(" ")[0]
         val name = rawName
             .replaceFirst("<", "")

@@ -6,7 +6,9 @@ import com.mojang.authlib.minecraft.MinecraftProfileTexture;
 import com.mojang.blaze3d.systems.RenderSystem;
 import me.ryfi.chatheads.ChatHeads;
 import me.ryfi.chatheads.util.IPlayerSkinProvider;
-import net.minecraft.client.texture.*;
+import net.minecraft.client.texture.PlayerSkinProvider;
+import net.minecraft.client.texture.PlayerSkinTexture;
+import net.minecraft.client.texture.TextureManager;
 import net.minecraft.client.util.DefaultSkinHelper;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Util;
@@ -27,12 +29,16 @@ import java.util.HashMap;
 @Mixin(PlayerSkinProvider.class)
 public class PlayerSkinProviderMixin implements IPlayerSkinProvider {
 
-    @Shadow @Final private File skinCacheDir;
+    @Shadow
+    @Final
+    private File skinCacheDir;
 
-    @Shadow @Final private TextureManager textureManager;
+    @Shadow
+    @Final
+    private TextureManager textureManager;
 
     @Inject(at = @At("RETURN"), method = "loadSkin(Lcom/mojang/authlib/GameProfile;Lnet/minecraft/client/texture/PlayerSkinProvider$SkinTextureAvailableCallback;Z)V")
-    public void loadSkin(GameProfile profile, PlayerSkinProvider.SkinTextureAvailableCallback callback, boolean requireSecure, CallbackInfo ci){
+    public void loadSkin(GameProfile profile, PlayerSkinProvider.SkinTextureAvailableCallback callback, boolean requireSecure, CallbackInfo ci) {
         Runnable runnable = () -> {
             final HttpURLConnection connection;
             try {

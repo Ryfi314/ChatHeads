@@ -30,7 +30,7 @@ public abstract class PlayerEntityRenderMixin extends LivingEntityRenderer<Abstr
             return;
         }
 
-        ChatManager.render(dispatcher,abstractClientPlayerEntity, matrixStack,vertexConsumerProvider,i);
+        ChatManager.render(dispatcher, abstractClientPlayerEntity, matrixStack, vertexConsumerProvider, i);
     }
 
 }

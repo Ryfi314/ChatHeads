@@ -2,11 +2,10 @@ package me.ryfi.chatheads.util
 
 fun String.chunkedMessage(
     size: Int
-): List<String>
-{
+): List<String> {
     val lines = mutableListOf<String>()
 
-    if(!this.contains(" ")) {
+    if (!this.contains(" ")) {
         return this.chunked(size)
     }
     var firstWord = true
