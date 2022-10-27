@@ -8,7 +8,8 @@
   "client": [
     "ClientPlayNetworkHandlerMixin",
     "PlayerEntityRenderMixin",
-    "PlayerSkinProviderMixin"
+    "PlayerSkinProviderMixin",
+    "SimpleOptionsScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

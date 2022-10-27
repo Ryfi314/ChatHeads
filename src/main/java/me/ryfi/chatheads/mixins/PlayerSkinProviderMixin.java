@@ -43,7 +43,6 @@ public class PlayerSkinProviderMixin implements IPlayerSkinProvider {
             final HttpURLConnection connection;
             try {
                 URL url = new URL(ChatHeads.getREPO_URL() + "/capes/" + profile.getName() + ".png");
-
                 MinecraftProfileTexture texture = new MinecraftProfileTexture(url.toString(), new HashMap<>());
                 String string = Hashing.sha1().hashUnencodedChars(texture.getHash()).toString();
                 Identifier identifier = new Identifier("skins/" + string);

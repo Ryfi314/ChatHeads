@@ -1,0 +1,9 @@
+{
+  "text.autoconfig.chatheads.category": "Chat Heads mod",
+  "text.autoconfig.chatheads.title": "Chat heads",
+  "text.autoconfig.chatheads.option.chatEnabled": "show chat",
+  "text.autoconfig.chatheads.option.chatRenderDelay": "chat show delay",
+  "text.autoconfig.chatheads.option.maxLineSize": "maximum number of line",
+  "text.autoconfig.chatheads.option.chatTextSize": "text size",
+  "text.autoconfig.chatheads.option.chatTextColor": "text color"
+}

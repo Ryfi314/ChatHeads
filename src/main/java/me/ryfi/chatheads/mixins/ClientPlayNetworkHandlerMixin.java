@@ -4,6 +4,7 @@ import me.ryfi.chatheads.chat.ChatManager;
 import me.ryfi.chatheads.util.Version;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
+import net.minecraft.network.packet.s2c.play.ChatMessageS2CPacket;
 import net.minecraft.network.packet.s2c.play.GameJoinS2CPacket;
 import net.minecraft.network.packet.s2c.play.GameMessageS2CPacket;
 import net.minecraft.text.Text;
@@ -16,8 +17,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class ClientPlayNetworkHandlerMixin {
 
     @Inject(at = @At("HEAD"), method = "onGameMessage")
-    public void onChatMessage(GameMessageS2CPacket packet, CallbackInfo ci) {
-        ChatManager.handleChatMessage(packet.content().getString());
+    public void onGameMessage(GameMessageS2CPacket packet, CallbackInfo ci) {
+        if (!packet.overlay()) ChatManager.handleChatMessage(packet.content().getString());
+    }
+
+    @Inject(at = @At("HEAD"), method = "onChatMessage")
+    public void onChatMessage(ChatMessageS2CPacket packet, CallbackInfo ci) {
+        ChatManager.handleChatMessage(packet.message().getContent().getString());
     }
 
     @Inject(at = @At("TAIL"), method = "onGameJoin")

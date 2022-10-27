@@ -8,7 +8,7 @@ import java.net.URL
 
 object Version {
 
-    private var VERSION = "1.3.1"
+    private var VERSION = "1.4"
 
     private var url = URL("${ChatHeads.REPO_URL}/version.txt")
 

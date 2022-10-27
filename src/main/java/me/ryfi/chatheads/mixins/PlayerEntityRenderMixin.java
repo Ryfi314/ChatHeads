@@ -1,5 +1,6 @@
 package me.ryfi.chatheads.mixins;
 
+import me.ryfi.chatheads.ChatHeads;
 import me.ryfi.chatheads.chat.ChatManager;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -22,15 +23,14 @@ public abstract class PlayerEntityRenderMixin extends LivingEntityRenderer<Abstr
     }
 
 
-    @Inject(method = "render(Lnet/minecraft/client/network/AbstractClientPlayerEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At(value = "HEAD"))
+    @Inject(method = "render(Lnet/minecraft/client/network/AbstractClientPlayerEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V", at = @At(value = "RETURN"))
     public void render(AbstractClientPlayerEntity abstractClientPlayerEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i, CallbackInfo ci) {
-
         double d = this.dispatcher.getSquaredDistanceToCamera(abstractClientPlayerEntity);
         if (d > 4096.0D) {
             return;
         }
-
-        ChatManager.render(dispatcher, abstractClientPlayerEntity, matrixStack, vertexConsumerProvider, i);
+        if (ChatHeads.getSettings().getChatEnabled())
+            ChatManager.render(dispatcher, abstractClientPlayerEntity, matrixStack, vertexConsumerProvider, i);
     }
 
 }
