@@ -7,5 +7,6 @@ Cделанно исключительно для сп <br /> <br />
 
 # Скачать
 https://www.curseforge.com/minecraft/mc-mods/chatheads<br />
-Для работы нужен kotlin-fabric<br />
+Для работы нужен kotlin-fabric и cloth config<br />
 https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin<br />
+https://www.curseforge.com/minecraft/mc-mods/cloth-config
