@@ -7,6 +7,7 @@ import net.minecraft.client.MinecraftClient
 import net.minecraft.client.network.AbstractClientPlayerEntity
 import net.minecraft.client.render.VertexConsumerProvider
 import net.minecraft.client.render.entity.EntityRenderDispatcher
+import net.minecraft.client.render.entity.PlayerEntityRenderer
 import net.minecraft.client.util.math.MatrixStack
 
 
@@ -53,6 +54,13 @@ object ChatManager {
         return messageCache.getIfPresent(name)
     }
 
+    private fun getNickNameOffset(entity: AbstractClientPlayerEntity) : Double {
+        if(entity.isMainPlayer) return 0.0
+
+        val scoreboardTeam = entity.scoreboardTeam ?: return (0.3 * ChatHeads.settings.chatTextSize)
+
+        return if(scoreboardTeam.nameTagVisibilityRule.value <= 1) (0.3 * ChatHeads.settings.chatTextSize) else 0.0
+    }
 
     @JvmStatic
     fun render(
@@ -69,7 +77,7 @@ object ChatManager {
         val g = MinecraftClient.getInstance().options.getTextBackgroundOpacity(0.25f)
         val j = (g * 255.0f).toInt() shl 24
         val chatTextSize = ChatHeads.settings.chatTextSize
-        val height = messages.size * (0.3f * chatTextSize) + entity.height + 0.2f
+        val height = (messages.size * (0.3f * chatTextSize)) + entity.height + 0.2f + getNickNameOffset(entity)
 
         matrices?.push()
         matrices?.translate(0.0, height, 0.0)

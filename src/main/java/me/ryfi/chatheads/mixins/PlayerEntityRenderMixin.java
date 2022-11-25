@@ -2,6 +2,7 @@ package me.ryfi.chatheads.mixins;
 
 import me.ryfi.chatheads.ChatHeads;
 import me.ryfi.chatheads.chat.ChatManager;
+import net.minecraft.client.gui.screen.option.SimpleOptionsScreen;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRendererFactory;
@@ -30,7 +31,7 @@ public abstract class PlayerEntityRenderMixin extends LivingEntityRenderer<Abstr
             return;
         }
         if (ChatHeads.getSettings().getChatEnabled())
-            ChatManager.render(dispatcher, abstractClientPlayerEntity, matrixStack, vertexConsumerProvider, i);
+            ChatManager.render(dispatcher,abstractClientPlayerEntity, matrixStack, vertexConsumerProvider, i);
     }
 
 }

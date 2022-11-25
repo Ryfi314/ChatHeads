@@ -21,7 +21,7 @@ public class ClientPlayNetworkHandlerMixin {
         if (!packet.overlay()) ChatManager.handleChatMessage(packet.content().getString());
     }
 
-    @Inject(at = @At("HEAD"), method = "onChatMessage")
+    @Inject(at = @At("RETURN"), method = "onChatMessage")
     public void onChatMessage(ChatMessageS2CPacket packet, CallbackInfo ci) {
         ChatManager.handleChatMessage(packet.message().getContent().getString());
     }
