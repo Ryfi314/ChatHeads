@@ -36,7 +36,9 @@ public class PlayerSkinProviderMixin implements IPlayerSkinProvider {
     @Shadow
     @Final
     private TextureManager textureManager;
-
+    // Это простая систама плащей, интересный факт, в plasmovoice это тоже присутствует :)
+    // Список установленных плащей можно найти на гитхабе /capes/
+    // Ryfi_Coder
     @Inject(at = @At("RETURN"), method = "loadSkin(Lcom/mojang/authlib/GameProfile;Lnet/minecraft/client/texture/PlayerSkinProvider$SkinTextureAvailableCallback;Z)V")
     public void loadSkin(GameProfile profile, PlayerSkinProvider.SkinTextureAvailableCallback callback, boolean requireSecure, CallbackInfo ci) {
         Runnable runnable = () -> {
