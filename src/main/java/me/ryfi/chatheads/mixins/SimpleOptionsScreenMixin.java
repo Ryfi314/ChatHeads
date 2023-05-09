@@ -5,11 +5,14 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.option.ChatOptionsScreen;
 import net.minecraft.client.gui.screen.option.SimpleOptionsScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.function.Supplier;
 
 @Mixin(SimpleOptionsScreen.class)
 public class SimpleOptionsScreenMixin extends Screen {
@@ -24,15 +27,16 @@ public class SimpleOptionsScreenMixin extends Screen {
         if (((SimpleOptionsScreen) (Object) this) instanceof ChatOptionsScreen) {
 
             this.addDrawableChild(
-                    new ButtonWidget(
+                    ButtonWidget.builder(
+                            Text.translatable("text.autoconfig.chatheads.title")
+                            , button -> client.setScreen(ChatHeads.getConfigScreen(((SimpleOptionsScreen) (Object) this)))
+                    ).dimensions(
                             20,
                             this.height - 27,
                             width / 6,
-                            20,
-                            Text.translatable("text.autoconfig.chatheads.title"),
-                            button ->
-                                    client.setScreen(ChatHeads.getConfigScreen(((SimpleOptionsScreen) (Object) this)))
-                    )
+                            20
+                    ).build()
+
             );
 
 

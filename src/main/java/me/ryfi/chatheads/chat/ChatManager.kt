@@ -4,6 +4,7 @@ import me.ryfi.chatheads.ChatHeads
 import me.ryfi.chatheads.ChatHeads.messageCache
 import me.ryfi.chatheads.util.chunkedMessage
 import net.minecraft.client.MinecraftClient
+import net.minecraft.client.font.TextRenderer
 import net.minecraft.client.network.AbstractClientPlayerEntity
 import net.minecraft.client.render.VertexConsumerProvider
 import net.minecraft.client.render.entity.EntityRenderDispatcher
@@ -98,7 +99,7 @@ object ChatManager {
                 false,
                 matrices?.peek()?.positionMatrix,
                 vertexConsumerProvider,
-                false,
+                TextRenderer.TextLayerType.NORMAL,
                 j,
                 light
             )
