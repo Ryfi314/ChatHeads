@@ -23,7 +23,7 @@ public class ClientPlayNetworkHandlerMixin {
 
     @Inject(at = @At("RETURN"), method = "onChatMessage")
     public void onChatMessage(ChatMessageS2CPacket packet, CallbackInfo ci) {
-        ChatManager.handleChatMessage(packet.body().content());
+        ChatManager.handleChatMessage(packet.message().getContent().getString());
     }
 
     @Inject(at = @At("TAIL"), method = "onGameJoin")

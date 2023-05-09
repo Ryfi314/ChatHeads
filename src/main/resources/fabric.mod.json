@@ -3,7 +3,7 @@
   "id": "chatheads",
   "version": "1.4",
   "name": "ChatHeads",
-  "description": "Сделано специально для СП",
+  "description": "Сделанно специально для СП",
   "authors": [
     "Ryfi_Coder"
   ],
@@ -25,8 +25,8 @@
   "depends": {
     "fabricloader": ">=0.14.9",
     "fabric": "*",
-    "minecraft": "1.19.4",
-    "fabric-language-kotlin": ">=1.9.4+kotlin.1.8.21",
-    "cloth-config": ">=8.2.88"
+    "minecraft": "1.19.2",
+    "fabric-language-kotlin": ">=1.8.3+kotlin.1.7.10",
+    "cloth-config": "<=8.2.88"
   }
 }
