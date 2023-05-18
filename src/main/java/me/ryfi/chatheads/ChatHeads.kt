@@ -25,7 +25,7 @@ import java.util.concurrent.TimeUnit
 
 object ChatHeads : ClientModInitializer {
     @JvmStatic
-    var REPO_URL = "https://raw.githubusercontent.com/Ryfi314/ChatHeads/1.19.2"
+    var REPO_URL = "https://raw.githubusercontent.com/Ryfi314/ChatHeads/1.19.4"
 
     // Список сообщений
     lateinit var messageCache: Cache<String, List<String>>
@@ -46,7 +46,7 @@ object ChatHeads : ClientModInitializer {
 
         val configHolder = AutoConfig.getConfigHolder(Settings::class.java)
         configHolder
-            .registerSaveListener { cfgh,
+            .registerSaveListener { _,
                                     newSettings ->
 
                 messageCache =

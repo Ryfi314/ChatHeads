@@ -8,7 +8,7 @@ import java.net.URL
 
 object Version {
 
-    private var VERSION = "1.4"
+    private var VERSION = "1.5"
 
     private var url = URL("${ChatHeads.REPO_URL}/version.txt")
 
@@ -16,12 +16,15 @@ object Version {
     var hasUpdates = false
 
     fun checkForUpdates() {
-        val http: HttpURLConnection = url.openConnection() as HttpURLConnection
-        http.disconnect()
 
-        val responseVersion = BufferedReader(InputStreamReader(http.inputStream)).readText()
+        try {
+            val http: HttpURLConnection = url.openConnection() as HttpURLConnection
+            http.disconnect()
 
-        hasUpdates = VERSION != responseVersion
+            val responseVersion = BufferedReader(InputStreamReader(http.inputStream)).readText()
+
+            hasUpdates = VERSION != responseVersion
+        } catch (ignored: Exception){} // типо фикс когда не может чекнуть, то бан
 
     }
 
